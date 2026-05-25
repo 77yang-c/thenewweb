@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>羽迹装备 | 羽毛球运动器材商城</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#store" data-view-target="store" aria-label="羽迹装备首页">
+        <span class="brand-mark">羽</span>
+        <span>羽迹装备</span>
+      </a>
+
+      <nav class="nav-tabs" aria-label="主导航">
+        <button class="nav-link active" type="button" data-view-target="store">
+          <i data-lucide="store"></i>
+          <span>商城</span>
+        </button>
+        <button class="nav-link" type="button" data-view-target="guide">
+          <i data-lucide="compass"></i>
+          <span>器材指南</span>
+        </button>
+        <button class="nav-link" type="button" data-view-target="admin">
+          <i data-lucide="shield-check"></i>
+          <span>管理台</span>
+        </button>
+      </nav>
+
+      <div class="top-actions">
+        <button class="icon-button cart-trigger" id="cartButton" type="button" aria-label="打开购物袋">
+          <i data-lucide="shopping-bag"></i>
+          <span class="count-badge" id="cartCount">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="view active" id="storeView">
+        <section class="store-intro">
+          <div class="intro-copy">
+            <p class="eyebrow">Badminton Gear Studio</p>
+            <h1>为训练与比赛挑选更顺手的器材</h1>
+            <p class="intro-text">
+              精选球拍、羽毛球、球鞋与训练配件，围绕速度、控制、耐用和舒适感组织商品，让选购更清楚。
+            </p>
+            <div class="intro-metrics" aria-label="商城概况">
+              <span><strong id="metricSku">0</strong>SKU</span>
+              <span><strong id="metricStock">0</strong>库存</span>
+              <span><strong id="metricSold">0</strong>已售</span>
+            </div>
+          </div>
+
+          <article class="featured-product" id="featuredProduct">
+            <img id="featuredImage" src="assets/racket.png" alt="精选羽毛球器材" />
+            <div>
+              <p class="eyebrow">本周精选</p>
+              <h2 id="featuredName">星羽 Phantom 900</h2>
+              <p id="featuredIntro">速度型进攻球拍，兼顾中后场杀球与网前反应。</p>
+              <button class="text-button" type="button" id="featuredDetailButton">
+                <span>查看详情</span>
+                <i data-lucide="arrow-right"></i>
+              </button>
+            </div>
+          </article>
+        </section>
+
+        <section class="catalog-section" aria-labelledby="catalogTitle">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Shop</p>
+              <h2 id="catalogTitle">器材商城</h2>
+            </div>
+            <div class="search-box">
+              <i data-lucide="search"></i>
+              <input id="searchInput" type="search" placeholder="搜索球拍、球鞋、配件" />
+            </div>
+          </div>
+
+          <div class="catalog-toolbar">
+            <div class="filter-row" id="categoryFilters" aria-label="商品分类筛选"></div>
+            <label class="select-control">
+              <span>排序</span>
+              <select id="sortSelect">
+                <option value="popular">销量优先</option>
+                <option value="rating">评分优先</option>
+                <option value="priceAsc">价格从低到高</option>
+                <option value="priceDesc">价格从高到低</option>
+                <option value="stock">库存充足</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="product-grid" id="productGrid"></div>
+          <div class="empty-state hidden" id="emptyProducts">
+            <i data-lucide="package-search"></i>
+            <p>没有匹配的商品</p>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="guideView">
+        <section class="guide-band">
+          <div class="section-heading guide-heading">
+            <div>
+              <p class="eyebrow">Gear Guide</p>
+              <h1>器材选择指南</h1>
+            </div>
+            <p>
+              按训练阶段、打法和场地需求挑选装备，让商品介绍不只停留在参数表。
+            </p>
+          </div>
+
+          <div class="guide-grid">
+            <article class="guide-card">
+              <img src="assets/racket.png" alt="羽毛球拍" />
+              <div>
+                <span class="chip">球拍</span>
+                <h2>速度与控制</h2>
+                <p>进攻型可优先看中杆偏硬和拍头略重；双打快节奏更适合轻量、挥速快的型号。</p>
+              </div>
+            </article>
+            <article class="guide-card">
+              <img src="assets/shuttle.png" alt="羽毛球" />
+              <div>
+                <span class="chip">用球</span>
+                <h2>飞行与耐用</h2>
+                <p>训练可选耐打型，比赛建议选择飞行稳定、落点更一致的鹅毛球。</p>
+              </div>
+            </article>
+            <article class="guide-card">
+              <img src="assets/shoes.png" alt="羽毛球鞋" />
+              <div>
+                <span class="chip">球鞋</span>
+                <h2>启动与保护</h2>
+                <p>侧向支撑、前掌缓震和止滑纹路决定了急停变向时的稳定性。</p>
+              </div>
+            </article>
+            <article class="guide-card">
+              <img src="assets/grip.png" alt="手胶" />
+              <div>
+                <span class="chip">配件</span>
+                <h2>手感与维护</h2>
+                <p>手胶、护腕和球包会影响训练连续性，建议按出汗量和携带场景搭配。</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="adminView">
+        <section class="admin-shell">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Admin</p>
+              <h1>管理员工作台</h1>
+            </div>
+            <button class="outline-button hidden" type="button" id="logoutButton">
+              <i data-lucide="log-out"></i>
+              <span>退出</span>
+            </button>
+          </div>
+
+          <form class="login-panel" id="loginPanel">
+            <div>
+              <h2>管理员登录</h2>
+              <p>默认账户：admin / admin123</p>
+            </div>
+            <label>
+              <span>账户</span>
+              <input id="adminUser" name="adminUser" autocomplete="username" required />
+            </label>
+            <label>
+              <span>密码</span>
+              <input id="adminPass" name="adminPass" type="password" autocomplete="current-password" required />
+            </label>
+            <button class="primary-button" type="submit">
+              <i data-lucide="key-round"></i>
+              <span>登录管理台</span>
+            </button>
+          </form>
+
+          <div class="admin-panel hidden" id="adminPanel">
+            <section class="dashboard-grid" aria-label="商品数据概览">
+              <article class="metric-card">
+                <span>商品数量</span>
+                <strong id="dashSku">0</strong>
+                <small>当前在售 SKU</small>
+              </article>
+              <article class="metric-card">
+                <span>库存金额</span>
+                <strong id="dashInventory">¥0</strong>
+                <small>按零售价估算</small>
+              </article>
+              <article class="metric-card">
+                <span>累计销售额</span>
+                <strong id="dashRevenue">¥0</strong>
+                <small>基于已售数量</small>
+              </article>
+              <article class="metric-card accent">
+                <span>低库存</span>
+                <strong id="dashLowStock">0</strong>
+                <small>库存低于 12 件</small>
+              </article>
+            </section>
+
+            <section class="analytics-layout">
+              <article class="analytics-panel">
+                <div class="panel-title">
+                  <h2>分类表现</h2>
+                  <i data-lucide="bar-chart-3"></i>
+                </div>
+                <div class="bar-list" id="categoryBars"></div>
+              </article>
+
+              <article class="analytics-panel">
+                <div class="panel-title">
+                  <h2>销售排行</h2>
+                  <i data-lucide="trophy"></i>
+                </div>
+                <div class="rank-list" id="salesRank"></div>
+              </article>
+            </section>
+
+            <section class="admin-layout">
+              <form class="product-form" id="productForm">
+                <div class="panel-title">
+                  <h2 id="formTitle">新增商品</h2>
+                  <button class="ghost-button" type="button" id="resetFormButton" aria-label="清空表单">
+                    <i data-lucide="rotate-ccw"></i>
+                  </button>
+                </div>
+
+                <input type="hidden" id="productId" />
+
+                <label>
+                  <span>商品名称</span>
+                  <input id="productName" required maxlength="40" />
+                </label>
+
+                <div class="form-row">
+                  <label>
+                    <span>分类</span>
+                    <select id="productCategory" required></select>
+                  </label>
+                  <label>
+                    <span>价格</span>
+                    <input id="productPrice" type="number" min="1" step="1" required />
+                  </label>
+                </div>
+
+                <div class="form-row">
+                  <label>
+                    <span>库存</span>
+                    <input id="productStock" type="number" min="0" step="1" required />
+                  </label>
+                  <label>
+                    <span>已售</span>
+                    <input id="productSold" type="number" min="0" step="1" required />
+                  </label>
+                </div>
+
+                <div class="form-row">
+                  <label>
+                    <span>评分</span>
+                    <input id="productRating" type="number" min="0" max="5" step="0.1" required />
+                  </label>
+                  <label>
+                    <span>等级</span>
+                    <select id="productLevel">
+                      <option>进阶</option>
+                      <option>入门</option>
+                      <option>专业</option>
+                      <option>训练</option>
+                    </select>
+                  </label>
+                </div>
+
+                <label>
+                  <span>图片</span>
+                  <select id="productImage"></select>
+                </label>
+                <label class="upload-label">
+                  <span>上传新图片</span>
+                  <input type="file" id="productImageUpload" accept="image/*" />
+                </label>
+
+                <label>
+                  <span>简介</span>
+                  <textarea id="productIntro" rows="3" required maxlength="120"></textarea>
+                </label>
+
+                <label>
+                  <span>参数</span>
+                  <input id="productSpecs" required maxlength="80" />
+                </label>
+
+                <button class="primary-button" type="submit">
+                  <i data-lucide="save"></i>
+                  <span id="submitProductText">保存商品</span>
+                </button>
+              </form>
+
+              <div class="data-tools">
+                <button class="outline-button" type="button" id="exportDataButton">
+                  <i data-lucide="download"></i>
+                  <span>导出数据</span>
+                </button>
+                <button class="outline-button" type="button" id="importDataButton">
+                  <i data-lucide="upload"></i>
+                  <span>导入数据</span>
+                </button>
+                <input type="file" id="importDataInput" accept=".json" hidden />
+              </div>
+
+              <article class="product-table-panel">
+                <div class="panel-title">
+                  <h2>商品管理</h2>
+                  <i data-lucide="package"></i>
+                </div>
+                <div class="table-wrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>商品</th>
+                        <th>分类</th>
+                        <th>价格</th>
+                        <th>库存</th>
+                        <th>已售</th>
+                        <th>操作</th>
+                      </tr>
+                    </thead>
+                    <tbody id="productTableBody"></tbody>
+                  </table>
+                </div>
+              </article>
+            </section>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="overlay hidden" id="overlay"></div>
+
+    <aside class="drawer" id="cartDrawer" aria-label="购物袋">
+      <div class="drawer-head">
+        <div>
+          <p class="eyebrow">Cart</p>
+          <h2>购物袋</h2>
+        </div>
+        <button class="ghost-button" type="button" id="closeCartButton" aria-label="关闭购物袋">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="cart-list" id="cartList"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>合计</span>
+          <strong id="cartTotal">¥0</strong>
+        </div>
+        <button class="primary-button" type="button" id="checkoutButton">
+          <i data-lucide="credit-card"></i>
+          <span>结算</span>
+        </button>
+      </div>
+    </aside>
+
+    <dialog class="product-dialog" id="productDialog">
+      <button class="ghost-button dialog-close" type="button" id="closeDialogButton" aria-label="关闭详情">
+        <i data-lucide="x"></i>
+      </button>
+      <div id="dialogContent"></div>
+    </dialog>
+
+    <div class="toast hidden" id="toast"></div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="utils.js"></script>
+    <script src="data.js"></script>
+    <script src="cart.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
